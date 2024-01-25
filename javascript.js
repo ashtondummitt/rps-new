@@ -1,5 +1,5 @@
-
-
+let playerScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
     const choices = ["Rock", "Paper", "Scissors"];
@@ -13,33 +13,29 @@ function playRound(playerSelection, computerSelection) {
   
     
 if (playerSelection === computerSelection) {  
-        return `${playerSelection} vs. ${computerSelection} You Tied`;
+    return `${playerSelection} vs. ${computerSelection}. You Tied`;
 
 } else if (playerSelection === "Rock"&& computerSelection === "Scissors" 
  || playerSelection === "Paper" && computerSelection === "Rock" 
  || playerSelection === "Scissors" && computerSelection === "Paper") {
-    return `${playerSelection} beats ${computerSelection}. You Win`;
+    return playerScore++, `${playerSelection} beats ${computerSelection}. You Win`; 
 
-} else if (playerSelection === "Rock" && computerSelection === "Paper" 
-|| playerSelection === "Paper" && computerSelection === "Scissors" 
-|| playerSelection === "Scissors" && computerSelection === "Rock") {
-    return `${playerSelection} doesn't beat ${computerSelection}. You lose`;
-}
-}
+} else 
+    return computerScore++, `${playerSelection} doesn't beat ${computerSelection}. You lose`;
+    }
+
 
 
 function game() {
-
-    
     for (let i = 0; i < 5; i++) {
 
-    
     playerSelection = prompt("Rock, Paper, or Scissors?");
     const computerSelection = getComputerChoice();
+    
     playRound(playerSelection, computerSelection);
 
     alert(playRound(playerSelection, computerSelection));
-    }  
+   }
 }
 
 
