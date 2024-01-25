@@ -38,17 +38,15 @@ function game() {
    }
 }
 
-function gameResult() {
-    if (playerScore > computerScore) {
-        alert("You won.")
-    } else if (playerScore < computerScore) {
-        alert("You lose.") 
-    } else 
-        alert("You tied.")
-}
-
 game();
-gameResult();
+
+if (playerScore > computerScore) {
+    alert(`You won. Your score = ${playerScore} Computer score = ${computerScore}`)
+} else if (playerScore < computerScore) {
+    alert(`You lose. Your score = ${playerScore} Computer score = ${computerScore}`) 
+} else 
+    alert(`You tied. Your score = ${playerScore} Computer score = ${computerScore}`)
+
 
 
 
