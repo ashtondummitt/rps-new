@@ -38,9 +38,17 @@ function game() {
    }
 }
 
-
+function gameResult() {
+    if (playerScore > computerScore) {
+        alert("You won.")
+    } else if (playerScore < computerScore) {
+        alert("You lose.") 
+    } else 
+        alert("You tied.")
+}
 
 game();
+gameResult();
 
 
 
