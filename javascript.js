@@ -13,17 +13,17 @@ function playRound(playerSelection, computerSelection) {
   
     
 if (playerSelection === computerSelection) {  
-        return "You Tied";
+        return `${playerSelection} vs. ${computerSelection} You Tied`;
 
 } else if (playerSelection === "Rock"&& computerSelection === "Scissors" 
  || playerSelection === "Paper" && computerSelection === "Rock" 
  || playerSelection === "Scissors" && computerSelection === "Paper") {
-    return "You Win";
+    return `${playerSelection} beats ${computerSelection}. You Win`;
 
-} else if (playerSelection === "Rock"&& computerSelection === "Paper" 
+} else if (playerSelection === "Rock" && computerSelection === "Paper" 
 || playerSelection === "Paper" && computerSelection === "Scissors" 
 || playerSelection === "Scissors" && computerSelection === "Rock") {
-    return "You lose";
+    return `${playerSelection} doesn't beat ${computerSelection}. You lose`;
 }
 }
 
