@@ -9,57 +9,52 @@ function getComputerChoice() {
 
 
 
+
 function playRound(playerSelection, computerSelection) {
-  
     
 if (playerSelection === computerSelection) {  
     return `${playerSelection} vs. ${computerSelection}. You Tied`;
 
-} else if (playerSelection === "Rock"&& computerSelection === "Scissors" 
+} else if (playerSelection === "Rock" && computerSelection === "Scissors" 
  || playerSelection === "Paper" && computerSelection === "Rock" 
  || playerSelection === "Scissors" && computerSelection === "Paper") {
-    return playerScore++, `${playerSelection} beats ${computerSelection}. You Win`; 
+    playerScore++;
+    return `${playerSelection} beats ${computerSelection}. You Win`;
 
 } else 
-    return computerScore++, `${playerSelection} doesn't beat ${computerSelection}. You lose`;
+    computerScore++;
+    return `${playerSelection} doesn't beat ${computerSelection}. You lose`;
     }
+
 
 
 
 function game() {
     for (let i = 0; i < 5; i++) {
-
-    playerSelection = prompt("Rock, Paper, or Scissors?");
-    const computerSelection = getComputerChoice();
     
-    playRound(playerSelection, computerSelection);
-
+    const computerSelection = getComputerChoice();
+    playerSelection = prompt("Rock, Paper, or Scissors?");
+    
+    
     alert(playRound(playerSelection, computerSelection));
-   }
+
 }
+
+
+
+
+}
+
+
+
 
 game();
 
+
 if (playerScore > computerScore) {
-    alert(`You won. Your score = ${playerScore} Computer score = ${computerScore}`)
+    alert(`You won. Your score = ${playerScore} Computer score = ${computerScore}`);
 } else if (playerScore < computerScore) {
-    alert(`You lose. Your score = ${playerScore} Computer score = ${computerScore}`) 
-} else 
-    alert(`You tied. Your score = ${playerScore} Computer score = ${computerScore}`)
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-  
+    alert(`You lose. Your score = ${playerScore} Computer score = ${computerScore}`);
+} else {
+    alert(`You tied. Your score = ${playerScore} Computer score = ${computerScore}`);
+}
