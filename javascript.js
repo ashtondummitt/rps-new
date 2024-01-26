@@ -1,3 +1,4 @@
+
 let playerScore = 0;
 let computerScore = 0;
 
@@ -7,54 +8,49 @@ function getComputerChoice() {
     return random;
 }
 
-
-
-
 function playRound(playerSelection, computerSelection) {
-    
-if (playerSelection === computerSelection) {  
-    return `${playerSelection} vs. ${computerSelection}. You Tied`;
 
-} else if (playerSelection === "Rock" && computerSelection === "Scissors" 
- || playerSelection === "Paper" && computerSelection === "Rock" 
- || playerSelection === "Scissors" && computerSelection === "Paper") {
+    if (playerSelection === computerSelection) {  
+    return `${playerSelection} vs. ${computerSelection}.\nWe have a tie...`;
+
+}   else if (playerSelection === "Rock" && computerSelection === "Scissors" 
+    || playerSelection === "Paper" && computerSelection === "Rock" 
+    || playerSelection === "Scissors" && computerSelection === "Paper") {
     playerScore++;
-    return `${playerSelection} beats ${computerSelection}. You Win`;
+    return `${playerSelection} vs. ${computerSelection}.\nYou win this round...`;
 
-} else 
+}   else 
     computerScore++;
-    return `${playerSelection} doesn't beat ${computerSelection}. You lose`;
+    return `${playerSelection} vs. ${computerSelection}.\nYou lose this round...`;
     }
 
-
-
+let welcomeToGame = confirm("Greetings, would you like to play a game?");
+    if (welcomeToGame) {
+        game();
+    }
+    else {
+        alert("That's too bad...");
+    }
 
 function game() {
     for (let i = 0; i < 5; i++) {
     
     const computerSelection = getComputerChoice();
-    playerSelection = prompt("Rock, Paper, or Scissors?");
-    
+    playerSelection = prompt("Choose carefully, or suffer the consequences...","Rock, Paper, or Scissors?");
     
     alert(playRound(playerSelection, computerSelection));
-
 }
-
-
-
-
-}
-
-
-
-
-game();
-
-
 if (playerScore > computerScore) {
-    alert(`You won. Your score = ${playerScore} Computer score = ${computerScore}`);
+    alert(`You won this time...\n\nYour score: ${playerScore} \nComputer score: ${computerScore}`);
 } else if (playerScore < computerScore) {
-    alert(`You lose. Your score = ${playerScore} Computer score = ${computerScore}`);
+    alert(`You lost. It was all for not.\n\nYour score: ${playerScore}\nComputer score: ${computerScore}`);
 } else {
-    alert(`You tied. Your score = ${playerScore} Computer score = ${computerScore}`);
+    alert(`We have a tie. You are stronger than I expected...\n\nYour score: ${playerScore}\nComputer score: ${computerScore}`);
+}
+let playAgain = confirm("Would you like to play again?");
+if (playAgain) {
+    location.reload();
+} else {
+    alert("That's too bad...")
+}
 }
