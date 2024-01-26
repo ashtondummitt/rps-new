@@ -9,37 +9,33 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-
+    
     if (playerSelection === computerSelection) {  
-    return `${playerSelection} vs. ${computerSelection}.\nWe have a tie...`;
+    return `${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} vs. ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}\nWe have a tie...`;
 
-}   else if (playerSelection === "Rock" && computerSelection === "Scissors" 
-    || playerSelection === "Paper" && computerSelection === "Rock" 
-    || playerSelection === "Scissors" && computerSelection === "Paper") {
+}   else if (playerSelection === "rock" && computerSelection === "scissors" 
+    || playerSelection === "paper" && computerSelection === "rock" 
+    || playerSelection === "scissors" && computerSelection === "paper") {
     playerScore++;
-    return `${playerSelection} vs. ${computerSelection}.\nYou win this round...`;
+    return `${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} vs. ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}\nYou win this round...`;
 
 }   else 
     computerScore++;
-    return `${playerSelection} vs. ${computerSelection}.\nYou lose this round...`;
+    return `${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} vs. ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}\nYou lose this round...`;
     }
 
-let welcomeToGame = confirm("Greetings, would you like to play a game?");
-    if (welcomeToGame) {
-        game();
-    }
-    else {
-        alert("That's too bad...");
-    }
 
 function game() {
     for (let i = 0; i < 5; i++) {
     
-    const computerSelection = getComputerChoice();
-    playerSelection = prompt("Choose carefully, or suffer the consequences...","Rock, Paper, or Scissors?");
-    
+    const computerSelection = getComputerChoice().toLowerCase();
+
+    let playerSelection = prompt("Choose carefully, or suffer the consequences...","Rock, Paper, or Scissors?").toLowerCase();
+  
+
     alert(playRound(playerSelection, computerSelection));
 }
+
 if (playerScore > computerScore) {
     alert(`You won this time...\n\nYour score: ${playerScore} \nComputer score: ${computerScore}`);
 } else if (playerScore < computerScore) {
@@ -54,3 +50,10 @@ if (playAgain) {
     alert("That's too bad...")
 }
 }
+
+let confirmGame = confirm("Greetings, would you like to play a game?");
+    if (confirmGame) {
+        game();
+    } else {
+        alert("That's too bad...");
+    }
