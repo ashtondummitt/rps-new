@@ -19,10 +19,16 @@ function playRound(playerSelection, computerSelection) {
     playerScore++;
     return `${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} vs. ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}\nYou win this round...`;
 
+}   else if (playerSelection !== "rock" 
+&& playerSelection !== "scissors"
+&& playerSelection !== "paper") {
+    computerScore++;
+    return `${playerSelection} is an invalid entry\nYou lose this round...`
+
 }   else 
     computerScore++;
     return `${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} vs. ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}\nYou lose this round...`;
-    }
+}
 
 
 function game() {
